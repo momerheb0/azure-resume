@@ -4,7 +4,7 @@ This is my [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-ch
 ## Frontend
 
 I used this [Template](https://styleshout.com/free-templates/ceevee/) to create my site.
-- **frontend/**: Folder contains the website.
-    - **main.js**: Folder Contains visitor counter code.
+- `frontend/`: Folder contains the website.
+    - `main.js`: File Contains visitor counter code.
 
 The visitor counter data is fetched via an API call to an Azure Function.    
