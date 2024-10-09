@@ -25,4 +25,12 @@ The back-end is an [HTTP triggered Azure Function](https://learn.microsoft.com/e
 
 - Created a [Cosmos DB for NoSQL account](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-portal) along with the Database, Container and the items inside.
 - Here's a helpful MS document on how to [develop azure function using VS code --
-    with python](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-python#run-functions-locally)
+    with python](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-python#run-functions-locally).
+- Deployed local Azure Function to Azure portal for production via Visual Studio Code Extension: Azure Functions.    
+    - It's important to install the required Azure packages (ex: azure-cosmos, azure-core) in your virtual environment and export it to your `requirements.txt` file because Azure Functions will install the dependencies listed inside during the deployment process.
+``` bash
+$ pip install azure-cosmos
+$ pip freeze > requirements.txt
+```
+- It's essential to enable CORS with Azure Functions locally and once it's [deployed to Azure](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#cors) for the website to be able to call it.
+- Created an Azure CDN for Blob Storage to cache the website content, provision a TLS certificate to enable HTTPS support and map a Custom Domain to the site. 
