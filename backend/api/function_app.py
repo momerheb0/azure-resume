@@ -29,7 +29,7 @@ def get_resume_counter(req: func.HttpRequest) -> func.HttpResponse:
         # Increment the count
         counter_item["count"] = count + 1
         
-        # Replace the item in the database with the updated count
+        # Replace updated count in the database
         container.replace_item(item="1", body=counter_item)
         
         # Return the updated count as a JSON response
