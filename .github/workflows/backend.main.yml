@@ -34,6 +34,7 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
         python -m pip install --upgrade pip
         pip install -r requirements.txt --target=".python_packages"
+        pip install pytest  # Ensure pytest is installed
         popd
 
 
