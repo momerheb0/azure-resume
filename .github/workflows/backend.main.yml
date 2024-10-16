@@ -33,7 +33,7 @@ jobs:
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
         python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages"
+        pip install -r requirements.txt --target="."
         pip install pytest  # Ensure pytest is installed
         popd
 
@@ -41,7 +41,7 @@ jobs:
     - name: 'Run Unit Test'
       shell: bash
       run: |
-        export PYTHONPATH="${PYTHONPATH}:./api"
+        export PYTHONPATH="${PYTHONPATH}:./api:./api/.python_packages"
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         python -m pytest tests/test_counter.py
         popd
