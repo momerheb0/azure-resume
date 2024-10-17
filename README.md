@@ -7,6 +7,7 @@ This is my [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-ch
     - `main.js`: Folder contains visitor counter code.
 - `api/`: Folder contains the Python API deployed on Azure Functions.
     - `function_app.py`: Contains the visitor counter code written in Python.
+- `github/workflows/`: Folder contains CI/CD workflow configurations.
 
 
 ## Frontend
@@ -32,5 +33,19 @@ The back-end is an [HTTP triggered Azure Function](https://learn.microsoft.com/e
 $ pip install azure-cosmos
 $ pip freeze > requirements.txt
 ```
+
 - It's essential to enable CORS with Azure Functions locally and once it's [deployed to Azure](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#cors) for the website to be able to call it.
 - Created an Azure CDN for Blob Storage to cache the website content, provision a TLS certificate to enable HTTPS support and map a Custom Domain to the site. 
+
+
+## CI/CD Pipline
+
+The porject utilizes GitHub Actions for continuous integration and deployment. The application is automatically built after each commit
+There are two seperate worflows:
+- `frontend.main.yml`: This workflow is responsible for building and deploying the frontend of the application to Azure.
+- `backend.main.yml`: This workflow handles the backend, including deploying the Azure Function. The backend also includes testing steps before deployment to Azure.
+
+
+## Testing
+
+ Pytest was used for unit testing the backend's Azure Function, it is run on every push request ensuring that the code remains bug-free before deployment.
