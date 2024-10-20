@@ -17,7 +17,8 @@ The front-end is a static site and has a visitor-counter. The visitor counter da
 - I used this [Template](https://styleshout.com/free-templates/ceevee/) to create my site.
 - I am no JavaScript expert, but this [article](https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data) explains how to make an API call with JavaScript code.
 - Deployed the static site folder to [Azure blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host).
-
+- It's essential to enable CORS with Azure Functions locally and once it's [deployed to Azure](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#cors) for the website to be able to call it.
+- Created an Azure CDN for Blob Storage to cache the website content, provision a TLS certificate to enable HTTPS support and map a Custom Domain to the site. 
 
 
 ## Backend 
@@ -33,9 +34,6 @@ The back-end is an [HTTP triggered Azure Function](https://learn.microsoft.com/e
 $ pip install azure-cosmos
 $ pip freeze > requirements.txt
 ```
-
-- It's essential to enable CORS with Azure Functions locally and once it's [deployed to Azure](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#cors) for the website to be able to call it.
-- Created an Azure CDN for Blob Storage to cache the website content, provision a TLS certificate to enable HTTPS support and map a Custom Domain to the site. 
 
 
 ## CI/CD Pipline
